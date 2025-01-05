@@ -5,12 +5,14 @@ const { printRequest } = require("./utils/printRequest");
 const { PORT } = require("./config/config");
 const { handleError } = require("./utils/errorHandler");
 const { pageNotFound } = require("./utils/notfound");
+const { authRoute } = require("./routes/auth");
 
 const app = express();
 
 app.use(rateLimiter);
 app.use(printRequest);
 app.use(express.json());
+app.use(authRoute);
 
 connectMongo();
 
