@@ -7,6 +7,7 @@ const { handleError } = require("./utils/errorHandler");
 const { pageNotFound } = require("./utils/notfound");
 const { authRoute } = require("./routes/auth");
 const { teacherRoute } = require("./routes/teacher");
+const { attendanceRoute } = require("./routes/attendance");
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use(printRequest);
 app.use(express.json());
 app.use(authRoute);
 app.use("/teacher", teacherRoute);
+app.use("/attendance", attendanceRoute)
 
 connectMongo();
 

@@ -1,5 +1,33 @@
 const mongoose = require("mongoose");
 
+const salarySchema = new mongoose.Schema({
+  month: {
+    type: Number,
+    required: true,
+    trim: true,
+  },
+  finalSalary: {
+    type: Number,
+    trim: true,
+  },
+  deduction: {
+    type: Number,
+    trim: true,
+    default: 0
+  },
+  lateEntry: {
+    type: Number,
+    trim: true,
+    default: 0
+  },
+  totalEntry: {
+    type: Number,
+    required: true,
+    trim: true,
+    default: 0
+  },
+});
+
 const attendanceSchema = new mongoose.Schema({
   year: {
     type: Number,
@@ -15,33 +43,6 @@ const attendanceSchema = new mongoose.Schema({
   ],
 });
 
-const salarySchema = new mongoose.Schema({
-  month: {
-    type: String,
-    required: true,
-    trim: true,
-  },
-  finalSalary: {
-    type: Number,
-    required: true,
-    trim: true,
-  },
-  deduction: {
-    type: Number,
-    required: true,
-    trim: true,
-  },
-  lateEntry: {
-    type: Number,
-    required: true,
-    trim: true,
-  },
-  totalEntry: {
-    type: Number,
-    required: true,
-    trim: true,
-  },
-});
 
 const attendanceModel = mongoose.model("attendance", attendanceSchema);
 
