@@ -1,4 +1,3 @@
-const { addIssueToContext } = require("zod");
 const { teacherModel } = require("../models/teacher");
 const { validateTeacher } = require("../utils/zod");
 
